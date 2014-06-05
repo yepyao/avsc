@@ -1,0 +1,39 @@
+import sys
+import math
+
+if len(sys.argv) < 3:
+    print 'Usage:<test.txt> <pred> [round]'
+    exit(-1)
+
+wsum = 0.0
+wsum_log = 0.0
+wsum_log2 = 0.0
+csum = 0
+fa = open( sys.argv[1] , 'r' )
+fb = open( sys.argv[2] , 'r' )
+for l in fa:
+    sa = float( l.split()[2] )
+    sb = float( fb.readline() )
+    csum += 1
+    wsum += abs( sa - sb )
+    sa_log_recover = math.pow(10.0,sa * (math.log10(200000.0) - math.log10(5000.0)) + math.log10(5000.0))    
+    try:
+        sb_log_recover = math.pow(10.0,sb * (math.log10(200000.0) - math.log10(5000.0)) + math.log10(5000.0))
+    except:
+        sb_log_recover = 0.0
+    
+    wsum_log += abs(sa_log_recover - sb_log_recover)
+    sb = 1.0 / ( 1.0 + math.exp( -sb ) )
+    sb_log_recover = math.pow(10.0,sb * (math.log10(200000.0) - math.log10(5000.0)) + math.log10(5000.0))
+    wsum_log2 += abs(sa_log_recover - sb_log_recover )
+
+fa.close()
+fb.close()
+
+MAE = wsum / csum * 195000
+MAE_log = wsum_log / csum
+MAE_log2 = wsum_log2 / csum
+if len(sys.argv) > 3:
+    print '[%d] MAE:%f MAE_log:%f MAE_log2:%f' % ( int(sys.argv[3]), MAE, MAE_log, MAE_log2 )
+else:
+    print 'MAE:%f' % ( MAE )

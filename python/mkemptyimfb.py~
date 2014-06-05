@@ -1,0 +1,16 @@
+import sys
+
+if len(sys.argv) < 2:
+    print 'Usage:<input>'
+    exit(-1)
+
+lcnt = 0
+fo = open( sys.argv[1] + '.imfb', 'w' )
+for l in  open( sys.argv[1], 'r' ):
+    if lcnt >= 1000:
+        fo.write( '%d 0\n' % lcnt )
+        lcnt = 0
+    lcnt += 1
+    
+fo.write('%d 0\n' % lcnt )
+fo.close()

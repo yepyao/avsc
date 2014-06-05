@@ -1,0 +1,1 @@
+usage: <config> <bufname> <Makefile>

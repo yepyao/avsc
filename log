@@ -1,0 +1,2532 @@
+make feature
+1
+2
+kddcup_combine_ugroup train.txt model/train.gbrt.buffer   -gd  -g kalen_offer_id kalen_market_id kalen_user_category_history_cnt kalen_user_company_history_cnt kalen_user_brand_history_cnt kalen_showclick_chain kalen_showclick_offer  -i   -efd   -u   -max_block 20000 -scale_score 1
+num_global=209, num_user=0, num_item=0, num_extra_imfb=0
+start creating buffer...
+all generation end,120000 blocks, 1 sec used
+kddcup_combine_ugroup test.txt model/test.gbrt.buffer   -gd  -g kalen_offer_id kalen_market_id kalen_user_category_history_cnt kalen_user_company_history_cnt kalen_user_brand_history_cnt kalen_showclick_chain kalen_showclick_offer  -i   -efd   -u   -max_block 20000 -scale_score 1
+num_global=209, num_user=0, num_item=0, num_extra_imfb=0
+start creating buffer...
+all generation end,40057 blocks, 0 sec used
+make libsvm-xgboost format input files
+train lines: 120000
+test lines: 40057
+begin to run xgboost
+[0]	test-auc:0.599638	test-map:0.461175	trainname-auc:0.704745	trainname-map:0.456301
+[1]	test-auc:0.596119	test-map:0.459691	trainname-auc:0.705699	trainname-map:0.458613
+[2]	test-auc:0.595078	test-map:0.452346	trainname-auc:0.706327	trainname-map:0.460251
+[3]	test-auc:0.599794	test-map:0.471445	trainname-auc:0.706450	trainname-map:0.459958
+[4]	test-auc:0.599667	test-map:0.470778	trainname-auc:0.706457	trainname-map:0.460402
+[5]	test-auc:0.595906	test-map:0.465483	trainname-auc:0.712384	trainname-map:0.464118
+[6]	test-auc:0.596739	test-map:0.468028	trainname-auc:0.712039	trainname-map:0.463800
+[7]	test-auc:0.596567	test-map:0.469440	trainname-auc:0.712132	trainname-map:0.464083
+[8]	test-auc:0.598066	test-map:0.473250	trainname-auc:0.711547	trainname-map:0.463759
+[9]	test-auc:0.600289	test-map:0.475579	trainname-auc:0.713053	trainname-map:0.464712
+[10]	test-auc:0.600709	test-map:0.475685	trainname-auc:0.713090	trainname-map:0.464834
+[11]	test-auc:0.600694	test-map:0.475478	trainname-auc:0.713140	trainname-map:0.464871
+[12]	test-auc:0.600944	test-map:0.476035	trainname-auc:0.713362	trainname-map:0.465349
+[13]	test-auc:0.600711	test-map:0.476309	trainname-auc:0.713430	trainname-map:0.465358
+[14]	test-auc:0.601976	test-map:0.476118	trainname-auc:0.713556	trainname-map:0.465724
+[15]	test-auc:0.601611	test-map:0.475798	trainname-auc:0.713727	trainname-map:0.465883
+[16]	test-auc:0.603350	test-map:0.475812	trainname-auc:0.713939	trainname-map:0.466212
+[17]	test-auc:0.602990	test-map:0.475883	trainname-auc:0.713998	trainname-map:0.466419
+[18]	test-auc:0.603066	test-map:0.475873	trainname-auc:0.714340	trainname-map:0.466485
+[19]	test-auc:0.602598	test-map:0.475801	trainname-auc:0.714488	trainname-map:0.466733
+[20]	test-auc:0.602197	test-map:0.475523	trainname-auc:0.714598	trainname-map:0.466767
+[21]	test-auc:0.602154	test-map:0.474617	trainname-auc:0.715115	trainname-map:0.467198
+[22]	test-auc:0.601863	test-map:0.475515	trainname-auc:0.715408	trainname-map:0.467485
+[23]	test-auc:0.601758	test-map:0.475310	trainname-auc:0.715575	trainname-map:0.467592
+[24]	test-auc:0.601158	test-map:0.475477	trainname-auc:0.715668	trainname-map:0.467737
+120000x210 matrix with 1320000 entries is loaded from ../../model/train.gbrt.svm_buffer
+1 groups are loaded from ../../model/train.gbrt.svm_buffer.group
+120000x210 matrix with 1320000 entries is saved to ../../model/train.gbrt.svm_buffer.buffer
+data contains 1 groups
+40057x210 matrix with 440627 entries is loaded from ../../model/test.gbrt.svm_buffer
+1 groups are loaded from ../../model/test.gbrt.svm_buffer.group
+40057x210 matrix with 440627 entries is saved to ../../model/test.gbrt.svm_buffer.buffer
+data contains 1 groups
+120000x210 matrix with 1320000 entries is loaded from ../../model/train.gbrt.svm_buffer.buffer
+data contains 1 groups
+buffer_size=280057
+boosting round 0, 0 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 1, 0 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 2, 0 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 120 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 3, 0 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 120 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 4, 0 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 5, 1 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 6, 1 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 124 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 7, 1 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 8, 2 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 120 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 9, 2 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 10, 2 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 11, 3 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 120 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 12, 3 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 118 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 13, 3 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 16 pruned nodes ,max_depth=6
+boosting round 14, 3 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 15, 4 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 16, 4 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 17, 4 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 18, 4 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 19, 5 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 20, 5 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 21, 5 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 22, 5 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 23, 6 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 24, 6 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 6 pruned nodes ,max_depth=6
+boos[25]	test-auc:0.600980	test-map:0.474732	trainname-auc:0.715892	trainname-map:0.467954
+[26]	test-auc:0.601447	test-map:0.475025	trainname-auc:0.716412	trainname-map:0.468359
+[27]	test-auc:0.601697	test-map:0.474980	trainname-auc:0.716890	trainname-map:0.468843
+[28]	test-auc:0.601703	test-map:0.474781	trainname-auc:0.716992	trainname-map:0.468761
+[29]	test-auc:0.601538	test-map:0.474211	trainname-auc:0.717206	trainname-map:0.469141
+[30]	test-auc:0.602267	test-map:0.474928	trainname-auc:0.717338	trainname-map:0.469269
+[31]	test-auc:0.602004	test-map:0.475298	trainname-auc:0.717381	trainname-map:0.469302
+[32]	test-auc:0.602494	test-map:0.475380	trainname-auc:0.717666	trainname-map:0.469572
+[33]	test-auc:0.602401	test-map:0.475292	trainname-auc:0.717703	trainname-map:0.469685
+[34]	test-auc:0.602818	test-map:0.475574	trainname-auc:0.717998	trainname-map:0.469946
+[35]	test-auc:0.602566	test-map:0.474865	trainname-auc:0.718190	trainname-map:0.470178
+[36]	test-auc:0.602966	test-map:0.475306	trainname-auc:0.718340	trainname-map:0.470341
+[37]	test-auc:0.603048	test-map:0.475284	trainname-auc:0.718549	trainname-map:0.470589
+[38]	test-auc:0.603015	test-map:0.475147	trainname-auc:0.718676	trainname-map:0.470819
+[39]	test-auc:0.603342	test-map:0.477271	trainname-auc:0.718828	trainname-map:0.470950
+[40]	test-auc:0.603315	test-map:0.477306	trainname-auc:0.719176	trainname-map:0.471226
+[41]	test-auc:0.603379	test-map:0.477357	trainname-auc:0.719259	trainname-map:0.471400
+[42]	test-auc:0.603674	test-map:0.477696	trainname-auc:0.719319	trainname-map:0.471442
+[43]	test-auc:0.603590	test-map:0.477599	trainname-auc:0.719568	trainname-map:0.471737
+[44]	test-auc:0.603462	test-map:0.477788	trainname-auc:0.719928	trainname-map:0.472006
+[45]	test-auc:0.603629	test-map:0.477884	trainname-auc:0.720104	trainname-map:0.472210
+[46]	test-auc:0.604091	test-map:0.478243	trainname-auc:0.720298	trainname-map:0.472444
+[47]	test-auc:0.603870	test-map:0.477603	trainname-auc:0.720510	trainname-map:0.472679
+[48]	test-auc:0.604014	test-map:0.478032	trainname-auc:0.720686	trainname-map:0.472847
+[49]	test-auc:0.604073	test-map:0.478385	trainname-auc:0.720966	trainname-map:0.472988
+[50]	test-auc:0.604394	test-map:0.478513	trainname-auc:0.721190	trainname-map:0.473302
+[51]	test-auc:0.604167	test-map:0.478315	trainname-auc:0.721399	trainname-map:0.473553
+[52]	test-auc:0.604514	test-map:0.478699	trainname-auc:0.721579	trainname-map:0.473746
+[53]	test-auc:0.604653	test-map:0.478297	trainname-auc:0.721671	trainname-map:0.473887
+ting round 25, 6 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 26, 6 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 27, 7 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 28, 7 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 29, 7 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 30, 7 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 22 pruned nodes ,max_depth=6
+boosting round 31, 8 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 32, 8 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 33, 8 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 34, 8 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 35, 9 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 36, 9 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 37, 9 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 16 pruned nodes ,max_depth=6
+boosting round 38, 10 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 39, 10 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 114 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 40, 10 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 118 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 41, 10 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 42, 11 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 43, 11 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 44, 12 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 120 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 45, 12 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 46, 12 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 104 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 47, 13 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 48, 13 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 110 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 49, 13 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 116 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 50, 13 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 51, 14 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 52, 14 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 53, 14 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 54, 15 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra node[54]	test-auc:0.604798	test-map:0.478393	trainname-auc:0.721759	trainname-map:0.473985
+[55]	test-auc:0.604674	test-map:0.478342	trainname-auc:0.721917	trainname-map:0.474145
+[56]	test-auc:0.604624	test-map:0.478235	trainname-auc:0.722097	trainname-map:0.474260
+[57]	test-auc:0.604701	test-map:0.478127	trainname-auc:0.722218	trainname-map:0.474472
+[58]	test-auc:0.604742	test-map:0.478224	trainname-auc:0.722380	trainname-map:0.474724
+[59]	test-auc:0.604705	test-map:0.478358	trainname-auc:0.722593	trainname-map:0.474820
+[60]	test-auc:0.604725	test-map:0.478191	trainname-auc:0.722742	trainname-map:0.474964
+[61]	test-auc:0.604566	test-map:0.477968	trainname-auc:0.722937	trainname-map:0.475098
+[62]	test-auc:0.604409	test-map:0.477632	trainname-auc:0.723188	trainname-map:0.475194
+[63]	test-auc:0.604424	test-map:0.477534	trainname-auc:0.723355	trainname-map:0.475275
+[64]	test-auc:0.604534	test-map:0.478101	trainname-auc:0.723444	trainname-map:0.475463
+[65]	test-auc:0.604426	test-map:0.477966	trainname-auc:0.723541	trainname-map:0.475557
+[66]	test-auc:0.604273	test-map:0.477920	trainname-auc:0.723750	trainname-map:0.475648
+[67]	test-auc:0.604577	test-map:0.478275	trainname-auc:0.723845	trainname-map:0.475849
+[68]	test-auc:0.604533	test-map:0.478218	trainname-auc:0.723985	trainname-map:0.475921
+[69]	test-auc:0.604491	test-map:0.478112	trainname-auc:0.724080	trainname-map:0.476113
+[70]	test-auc:0.604516	test-map:0.478239	trainname-auc:0.724161	trainname-map:0.476219
+[71]	test-auc:0.604467	test-map:0.478204	trainname-auc:0.724270	trainname-map:0.476375
+[72]	test-auc:0.604456	test-map:0.478158	trainname-auc:0.724478	trainname-map:0.476532
+[73]	test-auc:0.604485	test-map:0.478162	trainname-auc:0.724611	trainname-map:0.476667
+[74]	test-auc:0.604043	test-map:0.477987	trainname-auc:0.724703	trainname-map:0.476817
+[75]	test-auc:0.604066	test-map:0.478045	trainname-auc:0.724854	trainname-map:0.476997
+[76]	test-auc:0.604079	test-map:0.478001	trainname-auc:0.725027	trainname-map:0.477127
+[77]	test-auc:0.604163	test-map:0.478386	trainname-auc:0.725094	trainname-map:0.477215
+[78]	test-auc:0.604095	test-map:0.478242	trainname-auc:0.725216	trainname-map:0.477378
+[79]	test-auc:0.604458	test-map:0.478090	trainname-auc:0.725373	trainname-map:0.477637
+[80]	test-auc:0.604391	test-map:0.478118	trainname-auc:0.725441	trainname-map:0.477723
+[81]	test-auc:0.604234	test-map:0.477943	trainname-auc:0.725493	trainname-map:0.477750
+[82]	test-auc:0.604303	test-map:0.477974	trainname-auc:0.725614	trainname-map:0.477928
+[83]	test-auc:0.604320	test-map:0.478030	trainname-auc:0.725714	trainname-map:0.478019
+s, 10 pruned nodes ,max_depth=6
+boosting round 55, 15 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 56, 15 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 57, 16 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 58, 16 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 59, 17 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 112 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 60, 17 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 61, 17 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 62, 17 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 63, 18 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 64, 18 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 65, 18 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 66, 19 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 67, 19 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 68, 20 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 69, 20 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 70, 20 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 71, 20 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 72, 21 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 73, 21 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 74, 21 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 75, 22 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 76, 22 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 77, 23 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 78, 23 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 79, 23 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 80, 24 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 56 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 81, 24 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 82, 24 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 83, 24 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 84, 25 sec elapsed
+
+build GBRT with 120000 instances
+tree train[84]	test-auc:0.604585	test-map:0.478497	trainname-auc:0.725880	trainname-map:0.478176
+[85]	test-auc:0.604638	test-map:0.478571	trainname-auc:0.726020	trainname-map:0.478323
+[86]	test-auc:0.604678	test-map:0.478554	trainname-auc:0.726190	trainname-map:0.478419
+[87]	test-auc:0.604667	test-map:0.478686	trainname-auc:0.726304	trainname-map:0.478584
+[88]	test-auc:0.604562	test-map:0.478673	trainname-auc:0.726431	trainname-map:0.478672
+[89]	test-auc:0.604661	test-map:0.478830	trainname-auc:0.726564	trainname-map:0.478739
+[90]	test-auc:0.604805	test-map:0.479597	trainname-auc:0.726705	trainname-map:0.478877
+[91]	test-auc:0.604811	test-map:0.479649	trainname-auc:0.726781	trainname-map:0.478888
+[92]	test-auc:0.604946	test-map:0.479741	trainname-auc:0.726891	trainname-map:0.478978
+[93]	test-auc:0.604930	test-map:0.479516	trainname-auc:0.726965	trainname-map:0.479088
+[94]	test-auc:0.604910	test-map:0.479575	trainname-auc:0.727048	trainname-map:0.479174
+[95]	test-auc:0.604994	test-map:0.479587	trainname-auc:0.727164	trainname-map:0.479257
+[96]	test-auc:0.604987	test-map:0.479715	trainname-auc:0.727223	trainname-map:0.479384
+[97]	test-auc:0.605014	test-map:0.479581	trainname-auc:0.727387	trainname-map:0.479468
+[98]	test-auc:0.605047	test-map:0.479754	trainname-auc:0.727459	trainname-map:0.479490
+[99]	test-auc:0.605090	test-map:0.479713	trainname-auc:0.727544	trainname-map:0.479678
+[100]	test-auc:0.605114	test-map:0.480026	trainname-auc:0.727650	trainname-map:0.479797
+[101]	test-auc:0.605089	test-map:0.480040	trainname-auc:0.727752	trainname-map:0.479985
+[102]	test-auc:0.605090	test-map:0.480011	trainname-auc:0.727811	trainname-map:0.479976
+[103]	test-auc:0.605124	test-map:0.480075	trainname-auc:0.727872	trainname-map:0.480123
+[104]	test-auc:0.605113	test-map:0.480225	trainname-auc:0.727889	trainname-map:0.480174
+[105]	test-auc:0.605110	test-map:0.480393	trainname-auc:0.728026	trainname-map:0.480325
+[106]	test-auc:0.605125	test-map:0.480359	trainname-auc:0.728128	trainname-map:0.480442
+[107]	test-auc:0.605175	test-map:0.480293	trainname-auc:0.728272	trainname-map:0.480547
+[108]	test-auc:0.604823	test-map:0.480377	trainname-auc:0.728407	trainname-map:0.480609
+[109]	test-auc:0.604962	test-map:0.480360	trainname-auc:0.728448	trainname-map:0.480661
+[110]	test-auc:0.604894	test-map:0.480086	trainname-auc:0.728640	trainname-map:0.480749
+[111]	test-auc:0.604943	test-map:0.480227	trainname-auc:0.728739	trainname-map:0.480861
+[112]	test-auc:0.604346	test-map:0.480071	trainname-auc:0.728848	trainname-map:0.480961
+[113]	test-auc:0.603832	test-map:0.479816	trainname-auc:0.728960	trainname-map:0.481120
+ end, 1 roots, 98 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 85, 25 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 86, 25 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 87, 26 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 88, 26 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 89, 26 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 90, 26 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 91, 27 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 92, 27 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 93, 27 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 94, 27 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 95, 28 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 96, 28 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 97, 28 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 98, 28 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 99, 29 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 100, 29 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 101, 29 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 102, 30 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 103, 30 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 104, 31 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 30 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 105, 31 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 106, 31 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 107, 32 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 108, 32 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 109, 33 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 110, 33 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 111, 33 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 112, 34 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 113, 34 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 114, 35 sec elapsed
+
+build GBRT[114]	test-auc:0.603729	test-map:0.479704	trainname-auc:0.729139	trainname-map:0.481336
+[115]	test-auc:0.603939	test-map:0.479601	trainname-auc:0.729249	trainname-map:0.481433
+[116]	test-auc:0.603955	test-map:0.479736	trainname-auc:0.729355	trainname-map:0.481526
+[117]	test-auc:0.604056	test-map:0.478927	trainname-auc:0.729467	trainname-map:0.481635
+[118]	test-auc:0.604136	test-map:0.479015	trainname-auc:0.729561	trainname-map:0.481731
+[119]	test-auc:0.604146	test-map:0.479217	trainname-auc:0.729722	trainname-map:0.481860
+[120]	test-auc:0.604215	test-map:0.479511	trainname-auc:0.729821	trainname-map:0.481977
+[121]	test-auc:0.604157	test-map:0.479439	trainname-auc:0.729962	trainname-map:0.482101
+[122]	test-auc:0.604140	test-map:0.479453	trainname-auc:0.730045	trainname-map:0.482132
+[123]	test-auc:0.604168	test-map:0.479516	trainname-auc:0.730188	trainname-map:0.482258
+[124]	test-auc:0.604142	test-map:0.479661	trainname-auc:0.730261	trainname-map:0.482334
+[125]	test-auc:0.603795	test-map:0.479661	trainname-auc:0.730350	trainname-map:0.482450
+[126]	test-auc:0.603808	test-map:0.479533	trainname-auc:0.730404	trainname-map:0.482521
+[127]	test-auc:0.604013	test-map:0.479587	trainname-auc:0.730447	trainname-map:0.482589
+[128]	test-auc:0.604120	test-map:0.479668	trainname-auc:0.730542	trainname-map:0.482683
+[129]	test-auc:0.604128	test-map:0.479706	trainname-auc:0.730598	trainname-map:0.482718
+[130]	test-auc:0.604406	test-map:0.479826	trainname-auc:0.730682	trainname-map:0.482764
+[131]	test-auc:0.604400	test-map:0.479918	trainname-auc:0.730759	trainname-map:0.482909
+[132]	test-auc:0.604471	test-map:0.479954	trainname-auc:0.730853	trainname-map:0.482989
+[133]	test-auc:0.604549	test-map:0.479973	trainname-auc:0.730909	trainname-map:0.483031
+[134]	test-auc:0.604472	test-map:0.479961	trainname-auc:0.731035	trainname-map:0.483199
+[135]	test-auc:0.604512	test-map:0.479905	trainname-auc:0.731090	trainname-map:0.483198
+[136]	test-auc:0.604626	test-map:0.479993	trainname-auc:0.731153	trainname-map:0.483248
+[137]	test-auc:0.604685	test-map:0.480011	trainname-auc:0.731230	trainname-map:0.483334
+[138]	test-auc:0.604727	test-map:0.479977	trainname-auc:0.731305	trainname-map:0.483405
+[139]	test-auc:0.604770	test-map:0.480117	trainname-auc:0.731387	trainname-map:0.483556
+[140]	test-auc:0.604718	test-map:0.480095	trainname-auc:0.731515	trainname-map:0.483680
+[141]	test-auc:0.604811	test-map:0.480368	trainname-auc:0.731566	trainname-map:0.483819
+[142]	test-auc:0.604863	test-map:0.480318	trainname-auc:0.731608	trainname-map:0.483830
+ with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 115, 35 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 116, 35 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 117, 36 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 118, 36 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 119, 36 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 120, 36 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 121, 37 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 122, 37 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 123, 37 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 124, 38 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 125, 38 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 126, 38 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 127, 38 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 128, 39 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 129, 39 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 130, 40 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 131, 40 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 132, 40 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 133, 41 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 134, 41 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 135, 42 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 136, 42 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 137, 42 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 138, 43 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 139, 43 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 140, 44 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 141, 44 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 50 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 142, 44 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 143, 45 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 16 pruned nodes ,max_depth=[143]	test-auc:0.604855	test-map:0.480408	trainname-auc:0.731714	trainname-map:0.483974
+[144]	test-auc:0.604877	test-map:0.480384	trainname-auc:0.731820	trainname-map:0.484047
+[145]	test-auc:0.604891	test-map:0.480361	trainname-auc:0.731862	trainname-map:0.484108
+[146]	test-auc:0.604912	test-map:0.480428	trainname-auc:0.731961	trainname-map:0.484182
+[147]	test-auc:0.604852	test-map:0.480318	trainname-auc:0.732062	trainname-map:0.484250
+[148]	test-auc:0.604595	test-map:0.480373	trainname-auc:0.732128	trainname-map:0.484340
+[149]	test-auc:0.604696	test-map:0.480425	trainname-auc:0.732174	trainname-map:0.484377
+[150]	test-auc:0.604691	test-map:0.480380	trainname-auc:0.732227	trainname-map:0.484424
+[151]	test-auc:0.604581	test-map:0.479808	trainname-auc:0.732301	trainname-map:0.484562
+[152]	test-auc:0.604508	test-map:0.479671	trainname-auc:0.732386	trainname-map:0.484606
+[153]	test-auc:0.604463	test-map:0.479310	trainname-auc:0.732455	trainname-map:0.484673
+[154]	test-auc:0.604355	test-map:0.479226	trainname-auc:0.732516	trainname-map:0.484713
+[155]	test-auc:0.604320	test-map:0.479167	trainname-auc:0.732592	trainname-map:0.484752
+[156]	test-auc:0.604347	test-map:0.479227	trainname-auc:0.732637	trainname-map:0.484787
+[157]	test-auc:0.604263	test-map:0.479102	trainname-auc:0.732674	trainname-map:0.484886
+[158]	test-auc:0.604263	test-map:0.479282	trainname-auc:0.732702	trainname-map:0.484933
+[159]	test-auc:0.604316	test-map:0.479299	trainname-auc:0.732819	trainname-map:0.484982
+[160]	test-auc:0.604313	test-map:0.479337	trainname-auc:0.732866	trainname-map:0.484992
+[161]	test-auc:0.604265	test-map:0.479305	trainname-auc:0.732926	trainname-map:0.485091
+[162]	test-auc:0.604269	test-map:0.479334	trainname-auc:0.733049	trainname-map:0.485158
+[163]	test-auc:0.604278	test-map:0.479359	trainname-auc:0.733137	trainname-map:0.485270
+[164]	test-auc:0.604264	test-map:0.479360	trainname-auc:0.733168	trainname-map:0.485262
+[165]	test-auc:0.604291	test-map:0.479492	trainname-auc:0.733216	trainname-map:0.485355
+[166]	test-auc:0.604268	test-map:0.479538	trainname-auc:0.733315	trainname-map:0.485454
+[167]	test-auc:0.604306	test-map:0.479477	trainname-auc:0.733396	trainname-map:0.485470
+[168]	test-auc:0.604282	test-map:0.479400	trainname-auc:0.733473	trainname-map:0.485552
+[169]	test-auc:0.604277	test-map:0.479411	trainname-auc:0.733641	trainname-map:0.485645
+[170]	test-auc:0.604134	test-map:0.478570	trainname-auc:0.733749	trainname-map:0.485761
+[171]	test-auc:0.604166	test-map:0.478597	trainname-auc:0.733813	trainname-map:0.485822
+[172]	test-auc:0.604122	test-map:0.478668	trainname-auc:0.733881	trainname-map:0.485890
+6
+boosting round 144, 45 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 145, 45 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 146, 46 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 147, 46 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 148, 46 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 149, 47 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 44 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 150, 47 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 151, 47 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 152, 48 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 153, 48 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 154, 48 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 50 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 155, 49 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 156, 49 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 36 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 157, 50 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 28 pruned nodes ,max_depth=6
+boosting round 158, 50 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 159, 50 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 160, 51 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 30 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 161, 51 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 162, 51 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 163, 52 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 164, 52 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 165, 52 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 22 pruned nodes ,max_depth=6
+boosting round 166, 53 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 167, 53 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 168, 54 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 169, 54 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 170, 54 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 171, 55 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 172, 55 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 173, 55 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1[173]	test-auc:0.604123	test-map:0.478607	trainname-auc:0.733972	trainname-map:0.485955
+[174]	test-auc:0.604183	test-map:0.478715	trainname-auc:0.734059	trainname-map:0.486084
+[175]	test-auc:0.604303	test-map:0.478808	trainname-auc:0.734134	trainname-map:0.486172
+[176]	test-auc:0.604300	test-map:0.478792	trainname-auc:0.734178	trainname-map:0.486219
+[177]	test-auc:0.604291	test-map:0.478727	trainname-auc:0.734238	trainname-map:0.486265
+[178]	test-auc:0.604219	test-map:0.478667	trainname-auc:0.734380	trainname-map:0.486364
+[179]	test-auc:0.604395	test-map:0.478686	trainname-auc:0.734443	trainname-map:0.486476
+[180]	test-auc:0.604332	test-map:0.478558	trainname-auc:0.734545	trainname-map:0.486535
+[181]	test-auc:0.604335	test-map:0.478798	trainname-auc:0.734671	trainname-map:0.486646
+[182]	test-auc:0.604353	test-map:0.478805	trainname-auc:0.734704	trainname-map:0.486673
+[183]	test-auc:0.604394	test-map:0.478861	trainname-auc:0.734763	trainname-map:0.486784
+[184]	test-auc:0.604561	test-map:0.478972	trainname-auc:0.734811	trainname-map:0.486835
+[185]	test-auc:0.604553	test-map:0.478967	trainname-auc:0.734858	trainname-map:0.486929
+[186]	test-auc:0.604748	test-map:0.479084	trainname-auc:0.734926	trainname-map:0.487006
+[187]	test-auc:0.604621	test-map:0.478650	trainname-auc:0.735043	trainname-map:0.487129
+[188]	test-auc:0.604631	test-map:0.478533	trainname-auc:0.735103	trainname-map:0.487221
+[189]	test-auc:0.604560	test-map:0.478426	trainname-auc:0.735174	trainname-map:0.487268
+[190]	test-auc:0.604497	test-map:0.478408	trainname-auc:0.735241	trainname-map:0.487360
+[191]	test-auc:0.604526	test-map:0.478438	trainname-auc:0.735294	trainname-map:0.487363
+[192]	test-auc:0.604533	test-map:0.478441	trainname-auc:0.735393	trainname-map:0.487602
+[193]	test-auc:0.604532	test-map:0.478444	trainname-auc:0.735461	trainname-map:0.487659
+[194]	test-auc:0.604532	test-map:0.478409	trainname-auc:0.735491	trainname-map:0.487656
+[195]	test-auc:0.604558	test-map:0.478415	trainname-auc:0.735589	trainname-map:0.487802
+[196]	test-auc:0.604569	test-map:0.478503	trainname-auc:0.735646	trainname-map:0.487847
+[197]	test-auc:0.604533	test-map:0.478447	trainname-auc:0.735737	trainname-map:0.487912
+[198]	test-auc:0.604605	test-map:0.478498	trainname-auc:0.735807	trainname-map:0.488019
+[199]	test-auc:0.604584	test-map:0.478610	trainname-auc:0.735863	trainname-map:0.488071
+[200]	test-auc:0.604591	test-map:0.478551	trainname-auc:0.735918	trainname-map:0.488077
+[201]	test-auc:0.604555	test-map:0.478557	trainname-auc:0.735975	trainname-map:0.488164
+[202]	test-auc:0.604548	test-map:0.478489	trainname-auc:0.736103	trainname-map:0.488293
+ roots, 74 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 174, 56 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 175, 56 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 176, 56 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 38 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 177, 57 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 178, 57 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 179, 57 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 180, 58 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 181, 58 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 182, 58 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 38 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 183, 59 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 184, 59 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 185, 59 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 186, 59 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 187, 60 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 188, 60 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 189, 60 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 190, 60 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 191, 61 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 192, 61 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 193, 61 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 194, 62 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 195, 62 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 196, 63 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 197, 63 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 198, 63 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 199, 63 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 200, 64 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 201, 64 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 202, 64 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 203, 64 sec elapsed
+
+buil[203]	test-auc:0.604510	test-map:0.478524	trainname-auc:0.736180	trainname-map:0.488353
+[204]	test-auc:0.604378	test-map:0.478342	trainname-auc:0.736274	trainname-map:0.488458
+[205]	test-auc:0.604433	test-map:0.478349	trainname-auc:0.736356	trainname-map:0.488538
+[206]	test-auc:0.604415	test-map:0.478372	trainname-auc:0.736406	trainname-map:0.488573
+[207]	test-auc:0.604407	test-map:0.478630	trainname-auc:0.736479	trainname-map:0.488661
+[208]	test-auc:0.604433	test-map:0.478667	trainname-auc:0.736529	trainname-map:0.488700
+[209]	test-auc:0.604415	test-map:0.478646	trainname-auc:0.736585	trainname-map:0.488771
+[210]	test-auc:0.604304	test-map:0.478305	trainname-auc:0.736644	trainname-map:0.488896
+[211]	test-auc:0.604354	test-map:0.478322	trainname-auc:0.736695	trainname-map:0.488995
+[212]	test-auc:0.604217	test-map:0.478129	trainname-auc:0.736745	trainname-map:0.489047
+[213]	test-auc:0.604144	test-map:0.477912	trainname-auc:0.736811	trainname-map:0.489093
+[214]	test-auc:0.604001	test-map:0.477368	trainname-auc:0.736885	trainname-map:0.489173
+[215]	test-auc:0.603993	test-map:0.477376	trainname-auc:0.736915	trainname-map:0.489282
+[216]	test-auc:0.603993	test-map:0.477409	trainname-auc:0.736946	trainname-map:0.489311
+[217]	test-auc:0.603980	test-map:0.477428	trainname-auc:0.737044	trainname-map:0.489399
+[218]	test-auc:0.604145	test-map:0.477781	trainname-auc:0.737124	trainname-map:0.489435
+[219]	test-auc:0.604100	test-map:0.477806	trainname-auc:0.737187	trainname-map:0.489486
+[220]	test-auc:0.604075	test-map:0.477765	trainname-auc:0.737240	trainname-map:0.489580
+[221]	test-auc:0.604059	test-map:0.477797	trainname-auc:0.737266	trainname-map:0.489639
+[222]	test-auc:0.604006	test-map:0.477696	trainname-auc:0.737344	trainname-map:0.489718
+[223]	test-auc:0.604000	test-map:0.477860	trainname-auc:0.737443	trainname-map:0.489789
+[224]	test-auc:0.604034	test-map:0.477928	trainname-auc:0.737547	trainname-map:0.489889
+[225]	test-auc:0.604029	test-map:0.477888	trainname-auc:0.737605	trainname-map:0.489983
+[226]	test-auc:0.604024	test-map:0.477822	trainname-auc:0.737677	trainname-map:0.490063
+[227]	test-auc:0.603987	test-map:0.477792	trainname-auc:0.737701	trainname-map:0.490141
+[228]	test-auc:0.603976	test-map:0.477743	trainname-auc:0.737747	trainname-map:0.490185
+[229]	test-auc:0.603978	test-map:0.477701	trainname-auc:0.737802	trainname-map:0.490246
+[230]	test-auc:0.603945	test-map:0.478126	trainname-auc:0.737877	trainname-map:0.490323
+[231]	test-auc:0.603950	test-map:0.478041	trainname-auc:0.737955	trainname-map:0.490391
+d GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 204, 65 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 205, 65 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 206, 66 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 46 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 207, 66 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 208, 66 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 209, 67 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 210, 67 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 211, 67 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 212, 68 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 213, 68 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 214, 68 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 215, 68 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 216, 69 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 217, 69 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 218, 69 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 219, 70 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 220, 70 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 221, 70 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 222, 70 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 223, 71 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 224, 71 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 225, 71 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 226, 72 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 227, 72 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 228, 72 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 229, 73 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 230, 73 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 231, 73 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 232, 73 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 6 pruned nodes ,max_dep[232]	test-auc:0.603985	test-map:0.478092	trainname-auc:0.738062	trainname-map:0.490473
+[233]	test-auc:0.604031	test-map:0.478082	trainname-auc:0.738157	trainname-map:0.490512
+[234]	test-auc:0.604048	test-map:0.478222	trainname-auc:0.738232	trainname-map:0.490640
+[235]	test-auc:0.604374	test-map:0.478371	trainname-auc:0.738384	trainname-map:0.490737
+[236]	test-auc:0.604436	test-map:0.478330	trainname-auc:0.738458	trainname-map:0.490774
+[237]	test-auc:0.604454	test-map:0.478279	trainname-auc:0.738487	trainname-map:0.490859
+[238]	test-auc:0.604487	test-map:0.478323	trainname-auc:0.738558	trainname-map:0.490905
+[239]	test-auc:0.604469	test-map:0.478178	trainname-auc:0.738686	trainname-map:0.491023
+[240]	test-auc:0.604469	test-map:0.478171	trainname-auc:0.738756	trainname-map:0.491077
+[241]	test-auc:0.604462	test-map:0.478209	trainname-auc:0.738793	trainname-map:0.491188
+[242]	test-auc:0.604511	test-map:0.478260	trainname-auc:0.738864	trainname-map:0.491250
+[243]	test-auc:0.604473	test-map:0.478241	trainname-auc:0.738957	trainname-map:0.491316
+[244]	test-auc:0.604271	test-map:0.477778	trainname-auc:0.739026	trainname-map:0.491395
+[245]	test-auc:0.604203	test-map:0.477845	trainname-auc:0.739068	trainname-map:0.491449
+[246]	test-auc:0.604318	test-map:0.477878	trainname-auc:0.739114	trainname-map:0.491513
+[247]	test-auc:0.604339	test-map:0.477880	trainname-auc:0.739185	trainname-map:0.491569
+[248]	test-auc:0.604342	test-map:0.477919	trainname-auc:0.739266	trainname-map:0.491635
+[249]	test-auc:0.604353	test-map:0.477944	trainname-auc:0.739327	trainname-map:0.491687
+[250]	test-auc:0.604369	test-map:0.478094	trainname-auc:0.739372	trainname-map:0.491761
+[251]	test-auc:0.604376	test-map:0.478025	trainname-auc:0.739439	trainname-map:0.491808
+[252]	test-auc:0.604374	test-map:0.477785	trainname-auc:0.739551	trainname-map:0.491890
+[253]	test-auc:0.604105	test-map:0.477590	trainname-auc:0.739630	trainname-map:0.491958
+[254]	test-auc:0.604115	test-map:0.477585	trainname-auc:0.739727	trainname-map:0.492047
+[255]	test-auc:0.604085	test-map:0.477554	trainname-auc:0.739803	trainname-map:0.492111
+[256]	test-auc:0.604107	test-map:0.477633	trainname-auc:0.739864	trainname-map:0.492169
+[257]	test-auc:0.604097	test-map:0.477574	trainname-auc:0.739928	trainname-map:0.492243
+[258]	test-auc:0.604092	test-map:0.477594	trainname-auc:0.739988	trainname-map:0.492306
+[259]	test-auc:0.604015	test-map:0.477629	trainname-auc:0.740099	trainname-map:0.492398
+[260]	test-auc:0.604007	test-map:0.477694	trainname-auc:0.740157	trainname-map:0.492498
+[261]	test-auc:0.603988	test-map:0.477749	trainname-auc:0.740230	trainname-map:0.492494
+th=6
+boosting round 233, 74 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 234, 74 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 235, 74 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 236, 74 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 50 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 237, 75 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 46 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 238, 75 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 239, 75 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 240, 75 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 241, 76 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 242, 76 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 243, 76 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 244, 77 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 245, 77 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 246, 77 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 247, 78 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 248, 78 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 249, 78 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 250, 79 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 251, 79 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 252, 79 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 253, 80 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 254, 80 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 255, 81 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 256, 81 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 257, 81 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 258, 82 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 259, 82 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 260, 82 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 261, 82 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 262, 83 sec elapsed
+
+build GBRT with 120000 instances
+tree train en[262]	test-auc:0.604566	test-map:0.479314	trainname-auc:0.740309	trainname-map:0.492634
+[263]	test-auc:0.604532	test-map:0.479001	trainname-auc:0.740391	trainname-map:0.492727
+[264]	test-auc:0.604631	test-map:0.479145	trainname-auc:0.740473	trainname-map:0.492836
+[265]	test-auc:0.604622	test-map:0.479135	trainname-auc:0.740537	trainname-map:0.492900
+[266]	test-auc:0.604630	test-map:0.479116	trainname-auc:0.740625	trainname-map:0.493026
+[267]	test-auc:0.604611	test-map:0.479165	trainname-auc:0.740682	trainname-map:0.493107
+[268]	test-auc:0.604596	test-map:0.479179	trainname-auc:0.740806	trainname-map:0.493227
+[269]	test-auc:0.604591	test-map:0.479175	trainname-auc:0.740846	trainname-map:0.493298
+[270]	test-auc:0.604485	test-map:0.478948	trainname-auc:0.740957	trainname-map:0.493434
+[271]	test-auc:0.604453	test-map:0.479025	trainname-auc:0.741010	trainname-map:0.493426
+[272]	test-auc:0.604437	test-map:0.478968	trainname-auc:0.741050	trainname-map:0.493528
+[273]	test-auc:0.604522	test-map:0.479101	trainname-auc:0.741135	trainname-map:0.493615
+[274]	test-auc:0.604481	test-map:0.479126	trainname-auc:0.741230	trainname-map:0.493760
+[275]	test-auc:0.604478	test-map:0.479048	trainname-auc:0.741261	trainname-map:0.493774
+[276]	test-auc:0.604495	test-map:0.479067	trainname-auc:0.741302	trainname-map:0.493804
+[277]	test-auc:0.604747	test-map:0.479294	trainname-auc:0.741385	trainname-map:0.493912
+[278]	test-auc:0.604762	test-map:0.479247	trainname-auc:0.741461	trainname-map:0.494018
+[279]	test-auc:0.604732	test-map:0.479056	trainname-auc:0.741551	trainname-map:0.494107
+[280]	test-auc:0.604661	test-map:0.479091	trainname-auc:0.741641	trainname-map:0.494165
+[281]	test-auc:0.604637	test-map:0.478994	trainname-auc:0.741694	trainname-map:0.494252
+[282]	test-auc:0.604660	test-map:0.479051	trainname-auc:0.741733	trainname-map:0.494253
+[283]	test-auc:0.604629	test-map:0.479037	trainname-auc:0.741817	trainname-map:0.494305
+[284]	test-auc:0.604631	test-map:0.478927	trainname-auc:0.741863	trainname-map:0.494357
+[285]	test-auc:0.604625	test-map:0.478970	trainname-auc:0.741920	trainname-map:0.494451
+[286]	test-auc:0.604619	test-map:0.479006	trainname-auc:0.741980	trainname-map:0.494501
+[287]	test-auc:0.604594	test-map:0.478995	trainname-auc:0.742059	trainname-map:0.494635
+[288]	test-auc:0.604574	test-map:0.478991	trainname-auc:0.742091	trainname-map:0.494648
+[289]	test-auc:0.604579	test-map:0.479016	trainname-auc:0.742134	trainname-map:0.494731
+[290]	test-auc:0.604559	test-map:0.478977	trainname-auc:0.742172	trainname-map:0.494778
+[291]	test-auc:0.604556	test-map:0.478931	trainname-auc:0.742219	trainname-map:0.494847
+d, 1 roots, 84 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 263, 83 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 264, 83 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 265, 83 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 266, 84 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 267, 84 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 268, 84 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 269, 85 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 270, 85 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 271, 85 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 272, 86 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 273, 86 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 274, 86 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 104 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 275, 87 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 50 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 276, 87 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 277, 87 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 278, 88 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 279, 88 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 280, 88 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 281, 88 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 282, 89 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 283, 89 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 284, 89 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 285, 90 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 286, 90 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 287, 90 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 288, 90 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 289, 91 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 290, 91 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 291, 91 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 292, 91 sec elapsed
+[292]	test-auc:0.604527	test-map:0.478920	trainname-auc:0.742289	trainname-map:0.494895
+[293]	test-auc:0.604463	test-map:0.479049	trainname-auc:0.742340	trainname-map:0.494974
+[294]	test-auc:0.604477	test-map:0.478817	trainname-auc:0.742391	trainname-map:0.495021
+[295]	test-auc:0.604470	test-map:0.478809	trainname-auc:0.742456	trainname-map:0.495041
+[296]	test-auc:0.604513	test-map:0.478951	trainname-auc:0.742481	trainname-map:0.495156
+[297]	test-auc:0.604504	test-map:0.478844	trainname-auc:0.742533	trainname-map:0.495194
+[298]	test-auc:0.604482	test-map:0.478885	trainname-auc:0.742587	trainname-map:0.495231
+[299]	test-auc:0.604523	test-map:0.478897	trainname-auc:0.742653	trainname-map:0.495269
+[300]	test-auc:0.604525	test-map:0.478826	trainname-auc:0.742675	trainname-map:0.495318
+[301]	test-auc:0.604569	test-map:0.479007	trainname-auc:0.742706	trainname-map:0.495364
+[302]	test-auc:0.604512	test-map:0.478919	trainname-auc:0.742719	trainname-map:0.495351
+[303]	test-auc:0.604512	test-map:0.478907	trainname-auc:0.742741	trainname-map:0.495378
+[304]	test-auc:0.604502	test-map:0.478774	trainname-auc:0.742806	trainname-map:0.495450
+[305]	test-auc:0.604509	test-map:0.478814	trainname-auc:0.742876	trainname-map:0.495506
+[306]	test-auc:0.604484	test-map:0.478800	trainname-auc:0.742966	trainname-map:0.495546
+[307]	test-auc:0.604484	test-map:0.478831	trainname-auc:0.743029	trainname-map:0.495617
+[308]	test-auc:0.604473	test-map:0.478859	trainname-auc:0.743082	trainname-map:0.495703
+[309]	test-auc:0.604495	test-map:0.478912	trainname-auc:0.743170	trainname-map:0.495805
+[310]	test-auc:0.604496	test-map:0.478861	trainname-auc:0.743213	trainname-map:0.495782
+[311]	test-auc:0.604513	test-map:0.478804	trainname-auc:0.743267	trainname-map:0.495807
+[312]	test-auc:0.604509	test-map:0.478693	trainname-auc:0.743355	trainname-map:0.495942
+[313]	test-auc:0.604504	test-map:0.478712	trainname-auc:0.743397	trainname-map:0.496003
+[314]	test-auc:0.604492	test-map:0.478922	trainname-auc:0.743449	trainname-map:0.496062
+[315]	test-auc:0.604679	test-map:0.479064	trainname-auc:0.743513	trainname-map:0.496091
+[316]	test-auc:0.604717	test-map:0.479137	trainname-auc:0.743602	trainname-map:0.496211
+[317]	test-auc:0.604688	test-map:0.479116	trainname-auc:0.743649	trainname-map:0.496262
+[318]	test-auc:0.604710	test-map:0.479179	trainname-auc:0.743663	trainname-map:0.496311
+[319]	test-auc:0.604686	test-map:0.479103	trainname-auc:0.743709	trainname-map:0.496305
+[320]	test-auc:0.604622	test-map:0.479022	trainname-auc:0.743777	trainname-map:0.496472
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 293, 92 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 294, 92 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 295, 92 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 296, 93 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 297, 93 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 298, 93 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 299, 94 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 300, 94 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 301, 94 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 18 pruned nodes ,max_depth=6
+boosting round 302, 95 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 40 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 303, 95 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 56 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 304, 95 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 305, 96 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 306, 96 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 307, 96 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 308, 97 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 56 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 309, 97 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 310, 97 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 311, 97 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 312, 98 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 313, 98 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 314, 98 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 315, 98 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 316, 99 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 317, 99 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 318, 99 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 44 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 319, 99 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 320, 100 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 321, 100 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 6 pruned nod[321]	test-auc:0.604651	test-map:0.479387	trainname-auc:0.743849	trainname-map:0.496537
+[322]	test-auc:0.604688	test-map:0.479504	trainname-auc:0.743932	trainname-map:0.496671
+[323]	test-auc:0.604697	test-map:0.479583	trainname-auc:0.743999	trainname-map:0.496713
+[324]	test-auc:0.604728	test-map:0.479604	trainname-auc:0.744028	trainname-map:0.496793
+[325]	test-auc:0.604927	test-map:0.479897	trainname-auc:0.744101	trainname-map:0.496840
+[326]	test-auc:0.604877	test-map:0.479852	trainname-auc:0.744154	trainname-map:0.496923
+[327]	test-auc:0.604865	test-map:0.479726	trainname-auc:0.744195	trainname-map:0.497039
+[328]	test-auc:0.604882	test-map:0.479777	trainname-auc:0.744266	trainname-map:0.497123
+[329]	test-auc:0.604895	test-map:0.479815	trainname-auc:0.744288	trainname-map:0.497186
+[330]	test-auc:0.604881	test-map:0.479802	trainname-auc:0.744364	trainname-map:0.497283
+[331]	test-auc:0.604944	test-map:0.479702	trainname-auc:0.744449	trainname-map:0.497388
+[332]	test-auc:0.604788	test-map:0.479616	trainname-auc:0.744524	trainname-map:0.497421
+[333]	test-auc:0.604774	test-map:0.479560	trainname-auc:0.744535	trainname-map:0.497493
+[334]	test-auc:0.604877	test-map:0.479517	trainname-auc:0.744585	trainname-map:0.497543
+[335]	test-auc:0.604864	test-map:0.479604	trainname-auc:0.744623	trainname-map:0.497607
+[336]	test-auc:0.604893	test-map:0.479650	trainname-auc:0.744668	trainname-map:0.497623
+[337]	test-auc:0.604892	test-map:0.479664	trainname-auc:0.744692	trainname-map:0.497642
+[338]	test-auc:0.604970	test-map:0.479916	trainname-auc:0.744740	trainname-map:0.497780
+[339]	test-auc:0.605013	test-map:0.479839	trainname-auc:0.744812	trainname-map:0.497944
+[340]	test-auc:0.605015	test-map:0.479872	trainname-auc:0.744837	trainname-map:0.497942
+[341]	test-auc:0.605110	test-map:0.480332	trainname-auc:0.744871	trainname-map:0.498044
+[342]	test-auc:0.605073	test-map:0.480296	trainname-auc:0.744935	trainname-map:0.498069
+[343]	test-auc:0.605070	test-map:0.480293	trainname-auc:0.744972	trainname-map:0.498128
+[344]	test-auc:0.605083	test-map:0.480232	trainname-auc:0.745060	trainname-map:0.498206
+[345]	test-auc:0.604876	test-map:0.480019	trainname-auc:0.745153	trainname-map:0.498348
+[346]	test-auc:0.604901	test-map:0.480020	trainname-auc:0.745241	trainname-map:0.498430
+[347]	test-auc:0.604970	test-map:0.480015	trainname-auc:0.745286	trainname-map:0.498440
+[348]	test-auc:0.604965	test-map:0.480020	trainname-auc:0.745350	trainname-map:0.498550
+[349]	test-auc:0.604903	test-map:0.479960	trainname-auc:0.745424	trainname-map:0.498599
+[350]	test-auc:0.604895	test-map:0.479869	trainname-auc:0.745480	trainname-map:0.498639
+es ,max_depth=6
+boosting round 322, 100 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 323, 100 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 324, 100 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 56 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 325, 101 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 326, 101 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 327, 101 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 328, 101 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 329, 102 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 330, 102 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 331, 102 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 332, 102 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 333, 103 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 36 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 334, 103 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 335, 103 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 336, 103 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 337, 104 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 44 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 338, 104 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 339, 104 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 340, 105 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 341, 105 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 342, 105 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 343, 105 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 344, 106 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 345, 106 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 346, 106 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 347, 106 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 348, 106 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 349, 107 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 350, 107 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 351, 107 sec elapsed
+
+build GBR[351]	test-auc:0.604889	test-map:0.479885	trainname-auc:0.745594	trainname-map:0.498801
+[352]	test-auc:0.604859	test-map:0.479825	trainname-auc:0.745618	trainname-map:0.498806
+[353]	test-auc:0.604892	test-map:0.479971	trainname-auc:0.745698	trainname-map:0.498964
+[354]	test-auc:0.604713	test-map:0.479796	trainname-auc:0.745738	trainname-map:0.498954
+[355]	test-auc:0.604705	test-map:0.479837	trainname-auc:0.745762	trainname-map:0.498991
+[356]	test-auc:0.604635	test-map:0.479878	trainname-auc:0.745815	trainname-map:0.499111
+[357]	test-auc:0.604499	test-map:0.479840	trainname-auc:0.745888	trainname-map:0.499139
+[358]	test-auc:0.604462	test-map:0.479897	trainname-auc:0.745938	trainname-map:0.499185
+[359]	test-auc:0.604481	test-map:0.480007	trainname-auc:0.745984	trainname-map:0.499223
+[360]	test-auc:0.604478	test-map:0.479967	trainname-auc:0.746022	trainname-map:0.499241
+[361]	test-auc:0.604477	test-map:0.479945	trainname-auc:0.746073	trainname-map:0.499324
+[362]	test-auc:0.604454	test-map:0.480011	trainname-auc:0.746110	trainname-map:0.499376
+[363]	test-auc:0.604461	test-map:0.480019	trainname-auc:0.746149	trainname-map:0.499376
+[364]	test-auc:0.604450	test-map:0.479967	trainname-auc:0.746182	trainname-map:0.499434
+[365]	test-auc:0.604463	test-map:0.479987	trainname-auc:0.746232	trainname-map:0.499483
+[366]	test-auc:0.604439	test-map:0.479978	trainname-auc:0.746255	trainname-map:0.499568
+[367]	test-auc:0.604651	test-map:0.480383	trainname-auc:0.746361	trainname-map:0.499609
+[368]	test-auc:0.604781	test-map:0.480923	trainname-auc:0.746419	trainname-map:0.499690
+[369]	test-auc:0.604833	test-map:0.480992	trainname-auc:0.746453	trainname-map:0.499735
+[370]	test-auc:0.604860	test-map:0.481215	trainname-auc:0.746503	trainname-map:0.499769
+[371]	test-auc:0.604854	test-map:0.481045	trainname-auc:0.746554	trainname-map:0.499830
+[372]	test-auc:0.604847	test-map:0.481111	trainname-auc:0.746620	trainname-map:0.499889
+[373]	test-auc:0.604838	test-map:0.481119	trainname-auc:0.746667	trainname-map:0.499873
+[374]	test-auc:0.604778	test-map:0.480619	trainname-auc:0.746727	trainname-map:0.500001
+[375]	test-auc:0.604948	test-map:0.480991	trainname-auc:0.746789	trainname-map:0.500074
+[376]	test-auc:0.604952	test-map:0.481041	trainname-auc:0.746875	trainname-map:0.500111
+[377]	test-auc:0.604916	test-map:0.481035	trainname-auc:0.746913	trainname-map:0.500127
+[378]	test-auc:0.604918	test-map:0.480594	trainname-auc:0.746955	trainname-map:0.500217
+[379]	test-auc:0.604915	test-map:0.480543	trainname-auc:0.746987	trainname-map:0.500335
+T with 120000 instances
+tree train end, 1 roots, 108 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 352, 108 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 353, 108 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 354, 108 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 355, 108 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 50 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 356, 109 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 357, 109 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 358, 109 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 359, 109 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 360, 109 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 361, 110 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 362, 110 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 363, 110 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 364, 110 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 365, 111 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 366, 111 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 367, 111 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 106 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 368, 112 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 369, 112 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 370, 112 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 371, 112 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 372, 113 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 373, 113 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 374, 113 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 375, 113 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 376, 113 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 377, 114 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 378, 114 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 379, 114 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 380, 114 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nod[380]	test-auc:0.604935	test-map:0.480561	trainname-auc:0.747022	trainname-map:0.500358
+[381]	test-auc:0.604933	test-map:0.480821	trainname-auc:0.747117	trainname-map:0.500484
+[382]	test-auc:0.604971	test-map:0.480765	trainname-auc:0.747161	trainname-map:0.500463
+[383]	test-auc:0.604955	test-map:0.480846	trainname-auc:0.747212	trainname-map:0.500571
+[384]	test-auc:0.604905	test-map:0.481052	trainname-auc:0.747284	trainname-map:0.500637
+[385]	test-auc:0.605013	test-map:0.481144	trainname-auc:0.747325	trainname-map:0.500683
+[386]	test-auc:0.605014	test-map:0.481132	trainname-auc:0.747377	trainname-map:0.500687
+[387]	test-auc:0.605025	test-map:0.480997	trainname-auc:0.747502	trainname-map:0.500792
+[388]	test-auc:0.605026	test-map:0.480990	trainname-auc:0.747526	trainname-map:0.500760
+[389]	test-auc:0.604967	test-map:0.480859	trainname-auc:0.747546	trainname-map:0.500817
+[390]	test-auc:0.604980	test-map:0.480887	trainname-auc:0.747593	trainname-map:0.500856
+[391]	test-auc:0.604882	test-map:0.480614	trainname-auc:0.747683	trainname-map:0.500988
+[392]	test-auc:0.604943	test-map:0.480689	trainname-auc:0.747758	trainname-map:0.501044
+[393]	test-auc:0.604933	test-map:0.480856	trainname-auc:0.747818	trainname-map:0.501147
+[394]	test-auc:0.604923	test-map:0.480941	trainname-auc:0.747832	trainname-map:0.501225
+[395]	test-auc:0.604981	test-map:0.480901	trainname-auc:0.747899	trainname-map:0.501287
+[396]	test-auc:0.604788	test-map:0.480363	trainname-auc:0.747940	trainname-map:0.501367
+[397]	test-auc:0.604742	test-map:0.480347	trainname-auc:0.748020	trainname-map:0.501443
+[398]	test-auc:0.604732	test-map:0.480416	trainname-auc:0.748128	trainname-map:0.501627
+[399]	test-auc:0.604688	test-map:0.480461	trainname-auc:0.748185	trainname-map:0.501666
+[400]	test-auc:0.604654	test-map:0.480367	trainname-auc:0.748221	trainname-map:0.501663
+[401]	test-auc:0.604771	test-map:0.480789	trainname-auc:0.748308	trainname-map:0.501808
+[402]	test-auc:0.604778	test-map:0.480938	trainname-auc:0.748400	trainname-map:0.501847
+[403]	test-auc:0.604738	test-map:0.480907	trainname-auc:0.748432	trainname-map:0.501894
+[404]	test-auc:0.604763	test-map:0.480866	trainname-auc:0.748472	trainname-map:0.501948
+[405]	test-auc:0.604791	test-map:0.480960	trainname-auc:0.748540	trainname-map:0.501951
+[406]	test-auc:0.604777	test-map:0.480938	trainname-auc:0.748543	trainname-map:0.502000
+[407]	test-auc:0.604756	test-map:0.480849	trainname-auc:0.748605	trainname-map:0.502034
+[408]	test-auc:0.604829	test-map:0.480762	trainname-auc:0.748630	trainname-map:0.502101
+[409]	test-auc:0.604850	test-map:0.480827	trainname-auc:0.748674	trainname-map:0.502138
+es, 4 pruned nodes ,max_depth=6
+boosting round 381, 115 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 16 pruned nodes ,max_depth=6
+boosting round 382, 115 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 383, 115 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 384, 115 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 385, 116 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 386, 116 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 86 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 387, 116 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 118 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 388, 116 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 389, 117 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 390, 117 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 391, 117 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 392, 117 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 393, 118 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 394, 118 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 395, 118 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 104 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 396, 118 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 397, 119 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 398, 119 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 399, 119 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 400, 119 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 401, 120 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 402, 120 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 403, 120 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 404, 120 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 405, 121 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 104 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 406, 121 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 12 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 407, 121 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 408, 122 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 409, 122 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 410, 122 [410]	test-auc:0.604850	test-map:0.480855	trainname-auc:0.748711	trainname-map:0.502186
+[411]	test-auc:0.604827	test-map:0.480770	trainname-auc:0.748749	trainname-map:0.502252
+[412]	test-auc:0.604804	test-map:0.480738	trainname-auc:0.748785	trainname-map:0.502305
+[413]	test-auc:0.604826	test-map:0.480751	trainname-auc:0.748838	trainname-map:0.502394
+[414]	test-auc:0.604827	test-map:0.480786	trainname-auc:0.748853	trainname-map:0.502464
+[415]	test-auc:0.604939	test-map:0.481578	trainname-auc:0.748937	trainname-map:0.502547
+[416]	test-auc:0.605004	test-map:0.481602	trainname-auc:0.748993	trainname-map:0.502595
+[417]	test-auc:0.605012	test-map:0.481603	trainname-auc:0.749061	trainname-map:0.502672
+[418]	test-auc:0.604996	test-map:0.481599	trainname-auc:0.749086	trainname-map:0.502676
+[419]	test-auc:0.605001	test-map:0.481582	trainname-auc:0.749133	trainname-map:0.502752
+[420]	test-auc:0.605011	test-map:0.481612	trainname-auc:0.749168	trainname-map:0.502788
+[421]	test-auc:0.605004	test-map:0.481612	trainname-auc:0.749226	trainname-map:0.502810
+[422]	test-auc:0.605028	test-map:0.481610	trainname-auc:0.749290	trainname-map:0.502874
+[423]	test-auc:0.605054	test-map:0.481700	trainname-auc:0.749328	trainname-map:0.502952
+[424]	test-auc:0.605086	test-map:0.481754	trainname-auc:0.749375	trainname-map:0.502951
+[425]	test-auc:0.605166	test-map:0.481642	trainname-auc:0.749432	trainname-map:0.503086
+[426]	test-auc:0.605158	test-map:0.481681	trainname-auc:0.749512	trainname-map:0.503227
+[427]	test-auc:0.605159	test-map:0.481786	trainname-auc:0.749572	trainname-map:0.503285
+[428]	test-auc:0.605190	test-map:0.481751	trainname-auc:0.749599	trainname-map:0.503345
+[429]	test-auc:0.605227	test-map:0.481818	trainname-auc:0.749644	trainname-map:0.503386
+[430]	test-auc:0.605126	test-map:0.481564	trainname-auc:0.749686	trainname-map:0.503419
+[431]	test-auc:0.605114	test-map:0.481527	trainname-auc:0.749745	trainname-map:0.503487
+[432]	test-auc:0.605100	test-map:0.481530	trainname-auc:0.749770	trainname-map:0.503483
+[433]	test-auc:0.605074	test-map:0.481416	trainname-auc:0.749821	trainname-map:0.503547
+[434]	test-auc:0.605066	test-map:0.481443	trainname-auc:0.749864	trainname-map:0.503578
+[435]	test-auc:0.605041	test-map:0.481399	trainname-auc:0.749921	trainname-map:0.503647
+[436]	test-auc:0.605001	test-map:0.481488	trainname-auc:0.749969	trainname-map:0.503729
+[437]	test-auc:0.605020	test-map:0.481536	trainname-auc:0.750009	trainname-map:0.503764
+[438]	test-auc:0.604983	test-map:0.481426	trainname-auc:0.750042	trainname-map:0.503830
+sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 411, 123 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 412, 123 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 413, 123 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 414, 123 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 415, 124 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 416, 124 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 417, 124 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 418, 125 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 419, 125 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 420, 125 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 421, 126 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 422, 126 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 423, 126 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 424, 127 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 425, 127 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 426, 127 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 427, 127 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 428, 128 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 429, 128 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 430, 128 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 431, 129 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 432, 129 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 433, 129 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 434, 130 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 74 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 435, 130 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 436, 130 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 437, 130 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 438, 131 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 10 pruned nodes ,max_depth=6
+boosting round 439, 131 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, [439]	test-auc:0.604916	test-map:0.481113	trainname-auc:0.750082	trainname-map:0.503873
+[440]	test-auc:0.604875	test-map:0.481064	trainname-auc:0.750121	trainname-map:0.503935
+[441]	test-auc:0.604934	test-map:0.481094	trainname-auc:0.750175	trainname-map:0.503956
+[442]	test-auc:0.605078	test-map:0.482028	trainname-auc:0.750223	trainname-map:0.504050
+[443]	test-auc:0.605113	test-map:0.482076	trainname-auc:0.750275	trainname-map:0.504087
+[444]	test-auc:0.605084	test-map:0.482006	trainname-auc:0.750294	trainname-map:0.504125
+[445]	test-auc:0.604979	test-map:0.481940	trainname-auc:0.750342	trainname-map:0.504155
+[446]	test-auc:0.605023	test-map:0.482095	trainname-auc:0.750406	trainname-map:0.504237
+[447]	test-auc:0.604830	test-map:0.481238	trainname-auc:0.750470	trainname-map:0.504279
+[448]	test-auc:0.604824	test-map:0.481279	trainname-auc:0.750528	trainname-map:0.504306
+[449]	test-auc:0.604734	test-map:0.481148	trainname-auc:0.750574	trainname-map:0.504369
+[450]	test-auc:0.604734	test-map:0.481051	trainname-auc:0.750615	trainname-map:0.504452
+[451]	test-auc:0.604740	test-map:0.480982	trainname-auc:0.750659	trainname-map:0.504502
+[452]	test-auc:0.604804	test-map:0.481046	trainname-auc:0.750704	trainname-map:0.504567
+[453]	test-auc:0.604846	test-map:0.481056	trainname-auc:0.750729	trainname-map:0.504581
+[454]	test-auc:0.604746	test-map:0.481006	trainname-auc:0.750753	trainname-map:0.504656
+[455]	test-auc:0.604838	test-map:0.481122	trainname-auc:0.750787	trainname-map:0.504651
+[456]	test-auc:0.604689	test-map:0.481016	trainname-auc:0.750850	trainname-map:0.504766
+[457]	test-auc:0.604702	test-map:0.481072	trainname-auc:0.750880	trainname-map:0.504785
+[458]	test-auc:0.604700	test-map:0.481064	trainname-auc:0.750937	trainname-map:0.504831
+[459]	test-auc:0.604763	test-map:0.481096	trainname-auc:0.750966	trainname-map:0.504868
+[460]	test-auc:0.604720	test-map:0.480962	trainname-auc:0.750997	trainname-map:0.504912
+[461]	test-auc:0.604621	test-map:0.481044	trainname-auc:0.751056	trainname-map:0.504969
+[462]	test-auc:0.604666	test-map:0.481067	trainname-auc:0.751075	trainname-map:0.504971
+[463]	test-auc:0.604815	test-map:0.481150	trainname-auc:0.751077	trainname-map:0.505017
+[464]	test-auc:0.604777	test-map:0.480833	trainname-auc:0.751147	trainname-map:0.505016
+[465]	test-auc:0.604779	test-map:0.480792	trainname-auc:0.751218	trainname-map:0.505073
+[466]	test-auc:0.604788	test-map:0.480455	trainname-auc:0.751247	trainname-map:0.505117
+[467]	test-auc:0.604816	test-map:0.480459	trainname-auc:0.751311	trainname-map:0.505157
+[468]	test-auc:0.604825	test-map:0.480511	trainname-auc:0.751349	trainname-map:0.505239
+1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 440, 131 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 441, 131 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 442, 132 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 443, 132 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 444, 132 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 52 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 445, 132 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 446, 133 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 96 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 447, 133 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 448, 133 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 104 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 449, 134 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 450, 134 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 451, 134 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 452, 134 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 453, 135 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 454, 135 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 455, 136 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 16 pruned nodes ,max_depth=6
+boosting round 456, 136 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 457, 136 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 458, 136 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 459, 137 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 62 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 460, 137 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 48 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 461, 137 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 462, 137 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 42 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 463, 138 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 464, 138 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 465, 138 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 466, 139 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 58 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 467, 139 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 468, 139 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 6 pruned nodes ,max_depth=6
+boosting[469]	test-auc:0.604814	test-map:0.480338	trainname-auc:0.751381	trainname-map:0.505305
+[470]	test-auc:0.604651	test-map:0.480190	trainname-auc:0.751445	trainname-map:0.505422
+[471]	test-auc:0.604807	test-map:0.480692	trainname-auc:0.751483	trainname-map:0.505461
+[472]	test-auc:0.604781	test-map:0.480671	trainname-auc:0.751505	trainname-map:0.505526
+[473]	test-auc:0.604787	test-map:0.480660	trainname-auc:0.751579	trainname-map:0.505610
+[474]	test-auc:0.604787	test-map:0.480577	trainname-auc:0.751597	trainname-map:0.505648
+[475]	test-auc:0.604768	test-map:0.480583	trainname-auc:0.751639	trainname-map:0.505662
+[476]	test-auc:0.604748	test-map:0.480889	trainname-auc:0.751677	trainname-map:0.505738
+[477]	test-auc:0.604778	test-map:0.480925	trainname-auc:0.751704	trainname-map:0.505783
+[478]	test-auc:0.604776	test-map:0.480819	trainname-auc:0.751753	trainname-map:0.505928
+[479]	test-auc:0.604654	test-map:0.480517	trainname-auc:0.751808	trainname-map:0.505986
+[480]	test-auc:0.604595	test-map:0.480535	trainname-auc:0.751877	trainname-map:0.506046
+[481]	test-auc:0.604614	test-map:0.480473	trainname-auc:0.751906	trainname-map:0.506081
+[482]	test-auc:0.604505	test-map:0.480488	trainname-auc:0.751951	trainname-map:0.506144
+[483]	test-auc:0.604498	test-map:0.480444	trainname-auc:0.751981	trainname-map:0.506204
+[484]	test-auc:0.604525	test-map:0.480480	trainname-auc:0.752033	trainname-map:0.506234
+[485]	test-auc:0.604521	test-map:0.480477	trainname-auc:0.752074	trainname-map:0.506237
+[486]	test-auc:0.604626	test-map:0.480463	trainname-auc:0.752133	trainname-map:0.506290
+[487]	test-auc:0.604612	test-map:0.480439	trainname-auc:0.752170	trainname-map:0.506302
+[488]	test-auc:0.604637	test-map:0.480681	trainname-auc:0.752277	trainname-map:0.506441
+[489]	test-auc:0.604675	test-map:0.480660	trainname-auc:0.752337	trainname-map:0.506464
+[490]	test-auc:0.604663	test-map:0.480629	trainname-auc:0.752387	trainname-map:0.506529
+[491]	test-auc:0.604651	test-map:0.480671	trainname-auc:0.752424	trainname-map:0.506550
+[492]	test-auc:0.604587	test-map:0.480669	trainname-auc:0.752456	trainname-map:0.506593
+[493]	test-auc:0.604639	test-map:0.480763	trainname-auc:0.752472	trainname-map:0.506634
+[494]	test-auc:0.604648	test-map:0.480715	trainname-auc:0.752518	trainname-map:0.506629
+[495]	test-auc:0.604524	test-map:0.480583	trainname-auc:0.752565	trainname-map:0.506757
+[496]	test-auc:0.604517	test-map:0.480619	trainname-auc:0.752591	trainname-map:0.506773
+[497]	test-auc:0.604541	test-map:0.480582	trainname-auc:0.752650	trainname-map:0.506831
+ round 469, 140 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 40 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 470, 140 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 102 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 471, 140 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 472, 141 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 72 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 473, 141 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 474, 142 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 54 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 475, 142 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 80 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 476, 142 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 477, 143 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 68 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 478, 143 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 82 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 479, 143 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 100 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 480, 143 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 76 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 481, 144 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 60 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 482, 144 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 483, 144 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 14 pruned nodes ,max_depth=6
+boosting round 484, 145 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 92 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 485, 145 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 486, 145 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 12 pruned nodes ,max_depth=6
+boosting round 487, 146 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 488, 146 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 94 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 489, 146 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 88 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 490, 147 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 78 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 491, 147 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 492, 147 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 493, 148 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 64 extra nodes, 2 pruned nodes ,max_depth=6
+boosting round 494, 148 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 70 extra nodes, 6 pruned nodes ,max_depth=6
+boosting round 495, 148 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 90 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 496, 149 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 66 extra nodes, 0 pruned nodes ,max_depth=6
+boosting round 497, 149 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 84 extra nodes, 8 pruned nodes ,max_depth=6
+boosting round 498, 150 sec elapsed
+
+build GBRT with 120000 instances[498]	test-auc:0.604605	test-map:0.480693	trainname-auc:0.752688	trainname-map:0.506917
+[499]	test-auc:0.604605	test-map:0.480562	trainname-auc:0.752736	trainname-map:0.507003
+
+tree train end, 1 roots, 62 extra nodes, 4 pruned nodes ,max_depth=6
+boosting round 499, 150 sec elapsed
+
+build GBRT with 120000 instances
+tree train end, 1 roots, 98 extra nodes, 4 pruned nodes ,max_depth=6
+
+updating end, 150 sec in all
+can not open file "500.model" 
+40057x210 matrix with 440627 entries is loaded from ../../model/test.gbrt.svm_buffer.buffer
+data contains 1 groups
+/home/tqchen/kalen/avsc/kddcup2014_0
